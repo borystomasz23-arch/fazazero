@@ -153,11 +153,12 @@ const WhyMe = () => (
     <div className="container mx-auto px-4">
       <div className="flex flex-col lg:flex-row items-center gap-16">
         <div className="lg:w-1/2 relative">
-          <div className="reveal">
+          <div>
             <img 
-              src="https://images.unsplash.com/photo-1454165833767-027eeafeb976?auto=format&fit=crop&q=80&w=1200" 
-              alt="Profesjonalne prace przy instalacjach elektrycznych" 
+              src="https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&q=80&w=1200" 
+              alt="Prace elektryczne - profesjonalny montaż" 
               className="rounded-3xl shadow-2xl w-full object-cover min-h-[400px] bg-slate-200 border border-slate-200"
+              loading="lazy"
             />
           </div>
           <div className="absolute -bottom-10 -right-10 bg-yellow-400 p-8 rounded-2xl shadow-xl hidden sm:block reveal">
