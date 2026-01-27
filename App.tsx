@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 // --- Constants ---
@@ -153,11 +152,11 @@ const WhyMe = () => (
     <div className="container mx-auto px-4">
       <div className="flex flex-col lg:flex-row items-center gap-16">
         <div className="lg:w-1/2 relative">
-          <div>
+          <div className="shadow-2xl rounded-3xl overflow-hidden border border-slate-200">
             <img 
-              src="https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&q=80&w=1200" 
-              alt="Prace elektryczne - profesjonalny montaż" 
-              className="rounded-3xl shadow-2xl w-full object-cover min-h-[400px] bg-slate-200 border border-slate-200"
+              src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?auto=format&fit=crop&q=80&w=1200" 
+              alt="Profesjonalny montaż elektryczny" 
+              className="w-full h-full object-cover min-h-[400px]"
               loading="lazy"
             />
           </div>
