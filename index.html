@@ -90,6 +90,19 @@
             backdrop-filter: blur(10px);
             border: 1px border rgba(255, 255, 255, 0.1);
         }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #fbbf24;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden font-sans">
@@ -111,7 +124,7 @@
             <div class="hidden lg:flex items-center space-x-10 text-sm font-semibold uppercase tracking-widest text-white" id="desktop-links">
                 <a href="#uslugi" class="hover:text-brand-gold transition-colors">Usługi</a>
                 <a href="#o-mnie" class="hover:text-brand-gold transition-colors">O mnie</a>
-                <a href="#proces" class="hover:text-brand-gold transition-colors">Jak działam</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
                 <a href="#kontakt" class="hover:text-brand-gold transition-colors">Kontakt</a>
                 <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-6 py-3 rounded-full hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-xl">
                     <i class="fa-solid fa-phone-volume mr-2"></i> 792 061 992
@@ -129,7 +142,7 @@
     <div id="mobile-overlay" class="fixed inset-0 bg-brand-navy z-[90] flex flex-col items-center justify-center space-y-8 text-white transition-all duration-500 opacity-0 pointer-events-none translate-x-full">
         <a href="#uslugi" class="text-2xl font-bold">Usługi</a>
         <a href="#o-mnie" class="text-2xl font-bold">O mnie</a>
-        <a href="#proces" class="text-2xl font-bold">Jak działam</a>
+        <a href="#faq" class="text-2xl font-bold">FAQ</a>
         <a href="#kontakt" class="text-2xl font-bold">Kontakt</a>
         <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-8 py-4 rounded-full font-black text-xl">ZADZWOŃ</a>
     </div>
@@ -165,7 +178,7 @@
                         792 061 992
                     </a>
                     <a href="#uslugi" class="bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border border-white/20 text-xl px-12 py-5 rounded-2xl font-bold transition-all flex items-center justify-center">
-                        Nasze Usługi
+                        Moje usługi
                     </a>
                 </div>
             </div>
@@ -203,8 +216,8 @@
                     <div class="w-20 h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
                         <i class="fa-solid fa-bolt-lightning text-4xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4 text-slate-900">Pogotowie Elektryczne</h4>
-                    <p class="text-slate-500 leading-relaxed font-medium">Szybkie usuwanie awarii, naprawa zwarć i przywracanie zasilania w trybie pilnym.</p>
+                    <h4 class="text-2xl font-bold mb-4 text-slate-900">Naprawy Usterek</h4>
+                    <p class="text-slate-500 leading-relaxed font-medium">Szybkie usuwanie awarii, naprawa zwarć i przywracanie zasilania w Twoim domu.</p>
                 </div>
                 <!-- S3 -->
                 <div class="reveal group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="transition-delay: 200ms;">
@@ -248,7 +261,7 @@
                 <div class="relative z-10 flex flex-col items-center text-center reveal" style="transition-delay: 300ms;">
                     <div class="w-16 h-16 bg-white/10 text-white rounded-full flex items-center justify-center font-black text-2xl mb-6 backdrop-blur-md">4</div>
                     <h5 class="text-xl font-bold mb-3">Odbiór</h5>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Sprawdzamy działanie instalacji. Dostajesz fakturę lub wpis.</p>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Sprawdzamy działanie instalacji. Dostajesz wpis lub fakturę.</p>
                 </div>
             </div>
         </div>
@@ -301,8 +314,80 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-sm uppercase mb-4">Masz Pytania?</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Często Zadawane Pytania</h3>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
+                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jakie uprawnienia posiadasz?</span>
+                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
+                            Posiadam pełne, aktualne uprawnienia SEP w kategoriach E (Eksploatacja) oraz D (Dozór). Pozwala mi to na wykonywanie instalacji, pomiarów oraz odbiór prac w budynkach mieszkalnych i użytkowych.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 100ms;">
+                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
+                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Czy podbijasz gwarancję na płytę indukcyjną?</span>
+                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
+                            Tak. Większość producentów AGD wymaga, aby montażu dokonała osoba z uprawnieniami SEP pod rygorem utraty gwarancji. Po podłączeniu urządzenia dokonuję odpowiedniego wpisu i pieczęci w Twojej karcie gwarancyjnej.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 200ms;">
+                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
+                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jaki jest koszt dojazdu?</span>
+                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
+                            W promieniu 10 km od Bojszowy dojazd przy realizacji usługi jest darmowy. Powyżej tej odległości (do 30 km) koszt dojazdu jest ustalany indywidualnie, zazwyczaj jest to kwota symboliczna pokrywająca paliwo.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 300ms;">
+                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
+                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jak szybko możesz przyjechać do usterki?</span>
+                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
+                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
+                            Nagłe usterki elektryczne (brak prądu, zwarcia) traktuję priorytetowo. Zazwyczaj jestem w stanie pojawić się u klienta w ciągu kilku godzin od zgłoszenia telefonicznego, o ile aktualnie nie pracuję przy innym zleceniu.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Kontakt Final -->
-    <section id="kontakt" class="py-32 bg-slate-50 overflow-hidden">
+    <section id="kontakt" class="py-32 bg-white overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="bg-brand-navy rounded-[4rem] shadow-3xl overflow-hidden flex flex-col lg:flex-row reveal">
                 <!-- Left side -->
@@ -377,6 +462,7 @@
                 <div class="flex space-x-12 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                     <a href="#uslugi" class="hover:text-white transition-colors">Usługi</a>
                     <a href="#o-mnie" class="hover:text-white transition-colors">O mnie</a>
+                    <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
                     <a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a>
                 </div>
 
@@ -459,6 +545,22 @@
                 document.body.style.overflow = '';
             });
         });
+
+        // FAQ logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Toggle clicked item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
