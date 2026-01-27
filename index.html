@@ -4,365 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elektryk Bojszowy - Szybka Pomoc & Instalacje | Tel. 792 061 992</title>
-    <meta name="description" content="Profesjonalny elektryk w Bojszowach i okolicach (do 30km). Pogotowie elektryczne 24/7, montaż instalacji, rozdzielnic i AGD. Szybki dojazd i uczciwe ceny.">
-    
-    <!-- Tailwind CSS CDN -->
+    <meta name="description" content="Profesjonalny elektryk w Bojszowach i okolicach. Pogotowie elektryczne 24/7, montaż instalacji i AGD.">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .nav-scrolled {
-            background-color: #1e3a8a; /* blue-900 */
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .hero-gradient {
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8));
-        }
+        html { scroll-behavior: smooth; }
+        .bg-electric { background-color: #1e293b; } /* Ciemny granat */
+        .text-accent { color: #facc15; } /* Żółty elektryczny */
+        .bg-accent { background-color: #facc15; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+<body class="bg-slate-50 text-slate-900 font-sans">
 
-    <!-- Nawigacja -->
-    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 py-5 bg-transparent">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="bg-yellow-400 p-2 rounded-lg">
-                    <i class="fa-solid fa-bolt text-blue-900 text-xl"></i>
-                </div>
-                <span class="font-bold text-xl tracking-tight text-white">
-                    PRO <span class="text-yellow-400">ELEKTRYK</span>
-                </span>
-            </div>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider">
-                <a href="#uslugi" class="text-white hover:text-yellow-400 transition-colors">Usługi</a>
-                <a href="#o-mnie" class="text-white hover:text-yellow-400 transition-colors">Dlaczego ja</a>
-                <a href="#galeria" class="text-white hover:text-yellow-400 transition-colors">Galeria</a>
-                <a href="#kontakt" class="text-white hover:text-yellow-400 transition-colors">Kontakt</a>
-            </div>
-
-            <a href="tel:+48792061992" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-5 py-2 rounded-full font-bold transition-all shadow-md active:scale-95 flex items-center gap-2">
-                <i class="fa-solid fa-phone"></i>
-                <span class="hidden sm:inline">Zadzwoń</span>
+    <nav class="bg-electric text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tight"><i class="fas fa-bolt text-accent"></i> ELEKTRYK BOJSZOWY</span>
+            <a href="tel:792061992" class="bg-accent text-slate-900 px-4 py-2 rounded-full font-bold hover:scale-105 transition shadow-md">
+                <i class="fas fa-phone"></i> Zadzwoń
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-blue-950">
-        <div class="absolute inset-0 z-0">
-            <img 
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1920" 
-                alt="Profesjonalny Elektryk Bojszowy" 
-                class="w-full h-full object-cover object-center opacity-40 select-none"
-            >
+    <header class="relative bg-electric text-white py-20 px-6 overflow-hidden">
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Potrzebujesz Elektryka?</h1>
+            <p class="text-xl md:text-2xl mb-8 text-slate-300">Szybki dojazd, fachowa pomoc i uczciwe ceny w Bojszowach i okolicach.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="tel:792061992" class="bg-accent text-slate-900 px-8 py-4 rounded-lg text-xl font-bold hover:bg-yellow-400 transition shadow-xl">
+                    <i class="fas fa-phone-alt mr-2"></i> 792 061 992
+                </a>
+                <a href="#uslugi" class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-lg text-xl font-semibold hover:bg-white/20 transition">
+                    Zobacz ofertę
+                </a>
+            </div>
         </div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-block px-3 py-1 bg-yellow-400 text-blue-900 text-xs font-bold rounded-full mb-6 animate-bounce">
-                    POMOC ELEKTRYCZNA - BOJSZOWY I OKOLICE
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-                    Pewne i Bezpieczne <br> 
-                    <span class="text-yellow-400 underline decoration-2 underline-offset-8">Usługi Elektryczne</span>
-                </h1>
-                <p class="text-xl text-blue-100 mb-10 max-w-xl">
-                    Szybka pomoc przy awariach, profesjonalny montaż instalacji oraz podłączanie urządzeń. 
-                    Solidnie, czysto i zawsze na czas w najlepszej cenie.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="tel:+48792061992" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 text-lg px-8 py-4 rounded-xl font-bold transition-all shadow-xl flex items-center justify-center gap-3 active:scale-95">
-                        <i class="fa-solid fa-phone-flip text-xl"></i>
-                        Zadzwoń: 792 061 992
-                    </a>
-                    <a href="#uslugi" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 text-lg px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center">
-                        Sprawdź Ofertę
-                    </a>
-                </div>
-                <div class="mt-12 flex items-center gap-6">
-                    <div class="flex -space-x-2">
-                        <img class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-400" src="https://i.pravatar.cc/100?img=13" alt="Klient">
-                        <img class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-400" src="https://i.pravatar.cc/100?img=14" alt="Klient">
-                        <img class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-400" src="https://i.pravatar.cc/100?img=15" alt="Klient">
-                        <img class="w-10 h-10 rounded-full border-2 border-blue-900 bg-slate-400" src="https://i.pravatar.cc/100?img=16" alt="Klient">
-                    </div>
-                    <p class="text-blue-200 text-sm italic">
-                        Dołącz do zadowolonych klientów
-                    </p>
-                </div>
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 opacity-10">
+            <i class="fas fa-bolt text-[300px]"></i>
+        </div>
+    </header>
+
+    <section id="uslugi" class="py-20 px-6 container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Moje Usługi</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-accent text-4xl mb-4"><i class="fas fa-tools"></i></div>
+                <h3 class="text-xl font-bold mb-2">Instalacje i Naprawy</h3>
+                <p class="text-slate-600">Montaż nowych instalacji, wymiana starych kabli oraz szybkie usuwanie awarii.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-accent text-4xl mb-4"><i class="fas fa-plug"></i></div>
+                <h3 class="text-xl font-bold mb-2">Montaż AGD i Osprzętu</h3>
+                <p class="text-slate-600">Podłączanie płyt indukcyjnych (z podbiciem gwarancji), montaż gniazdek i lamp.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-accent text-4xl mb-4"><i class="fas fa-box"></i></div>
+                <h3 class="text-xl font-bold mb-2">Rozdzielnice i Pomiary</h3>
+                <p class="text-slate-600">Modernizacja rozdzielnic bezpiecznikowych oraz podstawowe pomiary elektryczne.</p>
             </div>
         </div>
     </section>
 
-    <!-- Usługi -->
-    <section id="uslugi" class="py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3">Pełen profesjonalizm</h2>
-                <h2 class="text-4xl font-bold text-slate-900">Moja Oferta Usług</h2>
-                <p class="text-slate-600 mt-4 max-w-2xl mx-auto italic text-lg">Zapewniam kompleksowe wsparcie elektryczne dla Twojego domu i biura.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Karta 1 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-house-bolt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Instalacje Elektryczne</h3>
-                    <p class="text-slate-600 leading-relaxed">Projektowanie i montaż nowych instalacji w domach, mieszkaniach oraz lokalach usługowych.</p>
-                </div>
-                <!-- Karta 2 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-screwdriver-wrench text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Pogotowie 24/7</h3>
-                    <p class="text-slate-600 leading-relaxed">Błyskawiczne usuwanie awarii, naprawa zwarć i przywracanie zasilania o każdej porze.</p>
-                </div>
-                <!-- Karta 3 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-box text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Tablice i Rozdzielnice</h3>
-                    <p class="text-slate-600 leading-relaxed">Modernizacja starych skrzynek bezpiecznikowych na bezpieczne, nowoczesne rozdzielnice.</p>
-                </div>
-                <!-- Karta 4 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-lightbulb text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Oświetlenie LED</h3>
-                    <p class="text-slate-600 leading-relaxed">Montaż lamp, żyrandoli, systemów inteligentnego oświetlenia oraz taśm dekoracyjnych LED.</p>
-                </div>
-                <!-- Karta 5 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-plug-circle-check text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Podłączanie AGD</h3>
-                    <p class="text-slate-600 leading-relaxed">Fachowy montaż płyt indukcyjnych, piekarników i pralek z podbiciem gwarancji producenta.</p>
-                </div>
-                <!-- Karta 6 -->
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-vial text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-800">Pomiary i Przeglądy</h3>
-                    <p class="text-slate-600 leading-relaxed">Okresowe przeglądy instalacji, pomiary skuteczności ochrony i stanu izolacji.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dlaczego ja -->
-    <section id="o-mnie" class="py-24 bg-slate-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 relative reveal">
-                    <div class="shadow-2xl rounded-3xl overflow-hidden border border-slate-200">
-                        <img 
-                            src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?auto=format&fit=crop&q=80&w=1200" 
-                            alt="Profesjonalny montaż elektryczny" 
-                            class="w-full h-full object-cover min-h-[400px]"
-                        >
-                    </div>
-                    <div class="absolute -bottom-10 -right-10 bg-yellow-400 p-8 rounded-2xl shadow-xl hidden sm:block">
-                        <p class="text-blue-900 font-bold text-4xl mb-1">SEP</p>
-                        <p class="text-blue-900 font-semibold text-sm">Uprawnienia <br>Państwowe</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 reveal">
-                    <h2 class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-3">Twoje bezpieczeństwo</h2>
-                    <h2 class="text-4xl font-bold text-slate-900 mb-8 leading-tight">Dlaczego warto mi zaufać?</h2>
-                    <ul class="space-y-6">
-                        <li class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-1">
-                                <i class="fa-solid fa-check text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-slate-800">Lokalny fachowiec</h4>
-                                <p class="text-slate-600">Działam w Bojszowach i okolicach, co gwarantuje najszybszy dojazd do klienta.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-1">
-                                <i class="fa-solid fa-check text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-slate-800">Czystość i porządek</h4>
-                                <p class="text-slate-600">Dbam o estetykę pracy – po wykonaniu usługi zostawiam miejsce w nienagannym stanie.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-1">
-                                <i class="fa-solid fa-check text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-slate-800">Uczciwa wycena</h4>
-                                <p class="text-slate-600">Zawsze ustalam cenę przed rozpoczęciem pracy. Bez ukrytych dopłat.</p>
-                            </div>
-                        </li>
+    <section class="bg-slate-100 py-20 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Działam Szybko i Lokalnie</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Dojazd do 30km od Bojszów</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Posiadam uprawnienia SEP</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Czystość i porządek po pracy</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Konkurencyjne ceny</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeria -->
-    <section id="galeria" class="py-24 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-slate-900 mb-4 reveal">Moje Realizacje</h2>
-            <p class="text-slate-600 mb-12 reveal">Zobacz przykłady prac wykonanych u moich klientów.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="reveal aspect-square overflow-hidden rounded-xl bg-slate-100 shadow-sm border border-slate-200">
-                    <img src="https://picsum.photos/seed/elec-1/800/800" alt="Realizacja" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="reveal aspect-square overflow-hidden rounded-xl bg-slate-100 shadow-sm border border-slate-200">
-                    <img src="https://picsum.photos/seed/elec-2/800/800" alt="Realizacja" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="reveal aspect-square overflow-hidden rounded-xl bg-slate-100 shadow-sm border border-slate-200">
-                    <img src="https://picsum.photos/seed/elec-3/800/800" alt="Realizacja" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="reveal aspect-square overflow-hidden rounded-xl bg-slate-100 shadow-sm border border-slate-200">
-                    <img src="https://picsum.photos/seed/elec-4/800/800" alt="Realizacja" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                <div class="md:w-1/2 bg-electric text-white p-8 rounded-3xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-4">Darmowa Wycena</h3>
+                    <p class="mb-6">Opisz mi swój problem lub prześlij zdjęcia na WhatsApp – wycenę przygotuję od ręki.</p>
+                    <a href="tel:792061992" class="block text-center bg-accent text-slate-900 py-4 rounded-xl font-black text-2xl hover:scale-105 transition">
+                        Zadzwoń teraz
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="kontakt" class="py-24 bg-blue-900 text-white overflow-hidden relative">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-16">
-                <div class="lg:w-1/2 reveal">
-                    <h2 class="text-4xl font-bold mb-8">Potrzebujesz fachowca? <br> <span class="text-yellow-400">Jestem do usług!</span></h2>
-                    <p class="text-blue-100 mb-12 text-lg">Zadzwoń bezpośrednio lub wyślij wiadomość. Pomogę Ci rozwiązać każdy problem z prądem.</p>
-                    
-                    <div class="space-y-8">
-                        <a href="tel:+48792061992" class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all">
-                                <i class="fa-solid fa-phone text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-blue-300 text-sm">Zadzwoń teraz</p>
-                                <p class="text-2xl font-bold">792 061 992</p>
-                            </div>
-                        </a>
-                        <div class="flex items-center gap-6">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
-                                <i class="fa-solid fa-location-dot text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-blue-300 text-sm">Gdzie działam?</p>
-                                <p class="text-2xl font-bold">Bojszowy i okolice (30 km)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-12 text-slate-900 shadow-2xl reveal">
-                    <h3 class="text-2xl font-bold mb-6 italic">Zapytaj o darmową wycenę</h3>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Wiadomość została wysłana! Zaraz oddzwonię.');">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Twoje Imię</label>
-                            <input type="text" placeholder="Jan Kowalski" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Numer Telefonu</label>
-                            <input type="tel" placeholder="000 000 000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">W czym mogę pomóc?</label>
-                            <textarea rows="4" placeholder="Opisz krótko swój problem..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-95">
-                            Wyślij wiadomość
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-white/5">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-                <div class="flex items-center space-x-2">
-                    <div class="bg-yellow-400 p-2 rounded-lg">
-                        <i class="fa-solid fa-bolt text-blue-900 text-lg"></i>
-                    </div>
-                    <span class="font-bold text-xl text-white tracking-tight">
-                        PRO <span class="text-yellow-400">ELEKTRYK</span>
-                    </span>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-google text-xl"></i></a>
-                </div>
-            </div>
-            <div class="pt-12 border-t border-white/5 text-sm text-center md:text-left">
-                &copy; 2024 Profesjonalny Elektryk Bojszowy. Działalność nierejestrowa.
+    <footer class="bg-electric text-slate-400 py-12 px-6 text-center">
+        <div class="container mx-auto">
+            <p class="mb-4">© 2026 Elektryk Bojszowy. Działalność nierejestrowa.</p>
+            <div class="flex justify-center gap-6 text-2xl">
+                <a href="#" class="hover:text-accent"><i class="fab fa-facebook"></i></a>
+                <a href="tel:792061992" class="hover:text-accent"><i class="fas fa-phone"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Button -->
-    <a href="tel:+48792061992" class="fixed bottom-6 right-6 z-50 md:hidden bg-yellow-400 text-blue-900 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center animate-pulse active:scale-90 transition-transform">
-        <i class="fa-solid fa-phone text-2xl"></i>
+    <a href="tel:792061992" class="md:hidden fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-[100] animate-bounce">
+        <i class="fas fa-phone text-2xl"></i>
     </a>
 
-    <script>
-        // Logika Nawigacji
-        const nav = document.getElementById('main-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        });
-
-        // Animacje Reveal (Intersection Observer)
-        const observerOptions = {
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
