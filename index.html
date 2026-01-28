@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faza zero Bojszowy | Elektryk z Uprawnieniami SEP | 792 061 992</title>
+    <title>Faza zero Bojszowy | Elektryk Tychy, Bieruń, Pszczyna | 792 061 992</title>
     
     <!-- SEO & Performance Meta -->
-    <meta name="description" content="Szukasz solidnego elektryka w Bojszowach? Faza zero oferuje profesjonalny montaż instalacji, pogotowie elektryczne, montaż AGD i pomiary. Szybki dojazd do 20km.">
-    <meta name="keywords" content="faza zero bojszowy, elektryk bojszowy, usługi elektryczne bojszowy, pogotowie elektryczne, montaż indukcji bojszowy, instalacje elektryczne">
+    <meta name="description" content="Solidny elektryk – Bojszowy, Tychy, Bieruń, Pszczyna. Oferujemy instalacje, inteligentny dom, pomiary, monitoring i pogotowie elektryczne. Szybki dojazd!">
+    <meta name="keywords" content="elektryk bojszowy, elektryk tychy, elektryk bieruń, pomiary elektryczne pszczyna, instalacje elektryczne lędziny, smart home przekaźniki, monitoring bojszowy">
     <meta name="author" content="Faza zero Bojszowy">
     <link rel="canonical" href="https://fazazero.pl">
 
@@ -28,12 +28,13 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Faza zero Bojszowy",
-      "description": "Profesjonalne usługi elektryczne, montaż instalacji i pogotowie elektryczne.",
+      "description": "Profesjonalne usługi elektryczne, pomiary i instalacje w Bojszowach, Tychach i okolicach.",
       "telephone": "+48792061992",
       "email": "borko92@onet.pl",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Bojszowy",
+        "addressRegion": "Śląskie",
         "addressCountry": "PL"
       },
       "url": "https://fazazero.pl",
@@ -58,22 +59,35 @@
         .reveal { opacity: 0; transform: translateY(15px); transition: all 0.5s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 500px; }
+        
+        /* FAQ Styles */
+        .faq-content { max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0; }
+        .faq-item.active .faq-content { max-height: 500px; opacity: 1; padding-top: 1rem; }
         .faq-item.active .faq-icon { transform: rotate(180deg); color: #fbbf24; }
         
         @media (max-width: 639px) {
-            .hero-title { font-size: 2.75rem !important; line-height: 1.1; }
-            #logo-text { font-size: 1.15rem !important; }
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1; }
+            #logo-text { font-size: 1.1rem !important; }
         }
         
         body, html { overflow-x: hidden; width: 100%; }
         .btn-loading { pointer-events: none; opacity: 0.7; }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .animate-spin-custom { animation: spin 1s linear infinite; }
+
+        /* Floating WhatsApp Animation */
+        .whatsapp-float {
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans selection:bg-brand-gold/30">
+<body class="bg-white text-slate-900 font-sans selection:bg-brand-gold/30 pb-16 lg:pb-0">
 
     <!-- Header -->
     <nav id="navbar" class="fixed w-full z-[100] transition-all duration-300 py-4 lg:py-6">
@@ -91,7 +105,8 @@
             
             <!-- Desktop Nav -->
             <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-white">
-                <a href="#uslugi" class="hover:text-brand-gold transition-colors">Usługi</a>
+                <a href="#uslugi" class="hover:text-brand-gold transition-colors">Oferta</a>
+                <a href="#zaufanie" class="hover:text-brand-gold transition-colors">Zaufanie</a>
                 <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
                 <a href="#kontakt" class="hover:text-brand-gold transition-colors">Kontakt</a>
                 <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-6 py-3 rounded-xl hover:bg-white transition-all transform hover:scale-105 shadow-xl">
@@ -108,15 +123,14 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-overlay" class="fixed inset-0 bg-brand-navy z-[90] flex flex-col items-center justify-center space-y-8 text-white transition-all duration-500 opacity-0 pointer-events-none translate-x-full">
-        <a href="#uslugi" class="mobile-link text-3xl font-black uppercase tracking-tighter">Usługi</a>
+        <a href="#uslugi" class="mobile-link text-3xl font-black uppercase tracking-tighter">Oferta</a>
+        <a href="#zaufanie" class="mobile-link text-3xl font-black uppercase tracking-tighter">Zaufanie</a>
         <a href="#faq" class="mobile-link text-3xl font-black uppercase tracking-tighter">FAQ</a>
         <a href="#kontakt" class="mobile-link text-3xl font-black uppercase tracking-tighter">Kontakt</a>
-        <div class="pt-8 px-6 w-full max-w-xs space-y-4">
+        <div class="pt-8 px-6 w-full max-w-xs space-y-4 text-center">
+            <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">Działamy w promieniu 20km</p>
             <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy w-full py-5 rounded-2xl font-black text-xl shadow-2xl flex items-center justify-center gap-3">
                 <i class="fa-solid fa-phone"></i> 792 061 992
-            </a>
-            <a href="https://wa.me/48792061992" target="_blank" class="bg-green-500 text-white w-full py-5 rounded-2xl font-black text-xl shadow-2xl flex items-center justify-center gap-3">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
         </div>
     </div>
@@ -125,7 +139,7 @@
     <header class="relative min-h-screen flex items-center bg-brand-navy overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?auto=format&fit=crop&q=60&w=1200" 
-                 alt="Profesjonalne usługi elektryczne Faza Zero" 
+                 alt="Solidny elektryk Bojszowy Tychy" 
                  class="w-full h-full object-cover opacity-25"
                  fetchpriority="high"
                  decoding="async">
@@ -136,14 +150,14 @@
             <div class="max-w-4xl">
                 <div class="inline-flex items-center space-x-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/10 mb-8 backdrop-blur-md">
                     <span class="w-2 h-2 bg-brand-gold rounded-full animate-pulse"></span>
-                    <span class="text-brand-gold text-[10px] font-bold uppercase tracking-widest">Szybki dojazd Bojszowy & Okolice</span>
+                    <span class="text-brand-gold text-[10px] font-bold uppercase tracking-widest">Szybki dojazd: Bojszowy, Tychy i okolice</span>
                 </div>
                 <h1 class="hero-title text-4xl sm:text-6xl md:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tight">
-                    Solidna Elektryka <br class="hidden sm:block">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-accent">Bez Kompromisów.</span>
+                    Solidna Elektryka – <br class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-accent">Bojszowy, Tychy i Okolice</span>
                 </h1>
                 <p class="text-lg sm:text-xl text-slate-300 mb-12 max-w-2xl leading-relaxed">
-                    Fachowiec z uprawnieniami SEP. Montuję instalacje, usuwam awarie i podłączam sprzęt AGD. Gwarantuję czystość i bezpieczeństwo Twojego domu.
+                    Profesjonalny elektryk z uprawnieniami SEP. Od nowoczesnych instalacji i Smart Home, przez monitoring, aż po fachowe pomiary i montaż AGD.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="tel:+48792061992" class="group bg-brand-gold hover:bg-white text-brand-navy text-xl px-10 py-5 rounded-2xl font-black transition-all shadow-2xl flex items-center justify-center gap-4">
@@ -151,7 +165,7 @@
                         792 061 992
                     </a>
                     <a href="#uslugi" class="bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border border-white/20 text-xl px-10 py-5 rounded-2xl font-bold transition-all flex items-center justify-center">
-                        Sprawdź ofertę
+                        Moja oferta
                     </a>
                 </div>
             </div>
@@ -162,141 +176,230 @@
     <section id="uslugi" class="py-24 bg-slate-50">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center lg:text-left mb-16 reveal">
-                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-xs uppercase mb-4">Moja Oferta</h2>
-                <h3 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">Profesjonalizm w Każdym <span class="text-brand-blue underline decoration-brand-gold decoration-4 underline-offset-8">Detalu.</span></h3>
+                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-xs uppercase mb-4">Pełen zakres usług</h2>
+                <h3 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">Profesjonalizm w Każdym <span class="text-brand-blue underline decoration-brand-gold decoration-4 underline-offset-8">Punkcie.</span></h3>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <article class="reveal group bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
-                        <i class="fa-solid fa-house-circle-check text-3xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Instalacje -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-house-circle-check text-2xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Instalacje Domowe</h4>
-                    <p class="text-slate-500 leading-relaxed font-medium">Od projektu po montaż. Nowoczesne systemy elektryczne w domach i mieszkaniach.</p>
+                    <h4 class="text-xl font-bold mb-3">Instalacje & Smart Home</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Projektowanie instalacji oraz podstawowa automatyka: przekaźniki, sterowanie oświetleniem i roletami.</p>
                 </article>
-                <article class="reveal group bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
-                        <i class="fa-solid fa-bolt-lightning text-3xl"></i>
+
+                <!-- Modernizacja -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-screwdriver-wrench text-2xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Naprawy Usterek</h4>
-                    <p class="text-slate-500 leading-relaxed font-medium">Szybkie usuwanie awarii, naprawa zwarć i przywracanie zasilania w Twoim domu.</p>
+                    <h4 class="text-xl font-bold mb-3">Modernizacja Instalacji</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Wymiana starych aluminiowych przewodów na nowe oraz modernizacja rozdzielnic elektrycznych.</p>
                 </article>
-                <article class="reveal group bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
-                        <i class="fa-solid fa-fire-burner text-3xl"></i>
+
+                <!-- Pomiary -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-clipboard-check text-2xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-4">Montaż AGD (SEP)</h4>
-                    <p class="text-slate-500 leading-relaxed font-medium">Fachowe podłączanie płyt indukcyjnych z wpisem do karty gwarancyjnej.</p>
+                    <h4 class="text-xl font-bold mb-3">Pomiary (Protokoły)</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Kompletne pomiary okresowe instalacji zakończone oficjalnymi protokołami dla ubezpieczalni.</p>
                 </article>
+
+                <!-- Monitoring -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-video text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Monitoring</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Montaż i konfiguracja kamer (CCTV) oraz systemów dozoru dla Twojego domu i posesji.</p>
+                </article>
+
+                <!-- Naprawy -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-bolt-lightning text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Pogotowie Elektryczne</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Szybka diagnostyka awarii, naprawa zwarć i przywracanie zasilania w trybie pilnym.</p>
+                </article>
+
+                <!-- AGD -->
+                <article class="reveal group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300" style="transition-delay: 500ms;">
+                    <div class="w-14 h-14 bg-slate-50 text-brand-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
+                        <i class="fa-solid fa-fire-burner text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Montaż AGD (SEP)</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Podłączanie płyt indukcyjnych z wpisem do karty gwarancyjnej przez uprawnionego fachowca.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dlaczego warto mi zaufać -->
+    <section id="zaufanie" class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-xs uppercase mb-4">Twój spokój jest najważniejszy</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">Dlaczego warto mi zaufać?</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-slate-50 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <i class="fa-solid fa-shield-check text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Uprawnienia SEP</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Pełne certyfikaty E i D gwarantują, że prace są wykonane zgodnie z polskimi normami bezpieczeństwa.</p>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-slate-50 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <i class="fa-solid fa-broom text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Czystość i porządek</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Dbam o Twoją przestrzeń. Po skończonej pracy zawsze zostawiam miejsce w idealnym porządku.</p>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-slate-50 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <i class="fa-solid fa-clock text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Terminowość</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Szanuję Twój czas. Umawiam się na konkretną godzinę i zawsze dotrzymuję terminów.</p>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-slate-50 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Wysoka jakość</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">Pracuję tylko na sprawdzonych materiałach renomowanych producentów, co zapewnia trwałość na lata.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-24 bg-white">
+    <section id="faq" class="py-24 bg-slate-50">
         <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-xs uppercase mb-4">Pomoc techniczna</h2>
-                <h3 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">Często Zadawane Pytania</h3>
+                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-xs uppercase mb-4">Pytania i odpowiedzi</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">FAQ – Najczęstsze pytania</h3>
             </div>
 
             <div class="space-y-4">
-                <div class="faq-item reveal bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex justify-between items-center group">
-                        <span class="text-lg font-bold text-slate-800">Jakie uprawnienia posiadasz?</span>
-                        <div class="faq-icon w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all flex-shrink-0 ml-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item reveal bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300">
+                    <button class="w-full p-6 text-left flex justify-between items-center group focus:outline-none" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-bold text-slate-800">Jakie uprawnienia są potrzebne do podłączenia płyty indukcyjnej?</span>
+                        <div class="faq-icon w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-all">
                             <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
                         </div>
                     </button>
-                    <div class="faq-content">
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">Posiadam pełne uprawnienia SEP E (Eksploatacja) oraz D (Dozór), co pozwala mi na legalne wykonywanie instalacji i pomiarów.</div>
+                    <div class="faq-content px-6 pb-6 text-slate-500 leading-relaxed font-medium">
+                        Większość producentów AGD wymaga, aby urządzenie zostało podłączone przez osobę z uprawnieniami SEP (Stowarzyszenie Elektryków Polskich). Posiadam te uprawnienia i po montażu dokonuję wpisu do karty gwarancyjnej, co zachowuje Twoje prawo do napraw gwarancyjnych.
                     </div>
                 </div>
-                <div class="faq-item reveal bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 text-left flex justify-between items-center group">
-                        <span class="text-lg font-bold text-slate-800">Czy podbijasz gwarancję na indukcję?</span>
-                        <div class="faq-icon w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all flex-shrink-0 ml-4">
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item reveal bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 100ms;">
+                    <button class="w-full p-6 text-left flex justify-between items-center group focus:outline-none" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-bold text-slate-800">Ile kosztuje wycena zlecenia?</span>
+                        <div class="faq-icon w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-all">
                             <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
                         </div>
                     </button>
-                    <div class="faq-content">
-                        <div class="px-6 pb-6 text-slate-500 leading-relaxed">Tak. Po podłączeniu urządzenia dokonuję wpisu do karty gwarancyjnej, co jest wymagane przez większość producentów.</div>
+                    <div class="faq-content px-6 pb-6 text-slate-500 leading-relaxed font-medium">
+                        Wycena zlecenia na terenie Bojszów i Tychów jest całkowicie bezpłatna i niezobowiązująca. Przyjeżdżam na miejsce, oceniam zakres prac i przedstawiam kosztorys.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item reveal bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 200ms;">
+                    <button class="w-full p-6 text-left flex justify-between items-center group focus:outline-none" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-bold text-slate-800">Czy wykonujesz pomiary elektryczne (pięcioletnie)?</span>
+                        <div class="faq-icon w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-xs"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 text-slate-500 leading-relaxed font-medium">
+                        Tak, wykonuję pełne pomiary instalacji elektrycznych, w tym rezystancji izolacji, pętli zwarcia oraz wyłączników RCD. Po zakończeniu prac wystawiam protokół z pomiarów, który jest wymagany m.in. przez ubezpieczalnie i nadzór budowlany.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kontakt -->
+    <!-- Obszar Działania & Kontakt -->
     <section id="kontakt" class="py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="bg-brand-navy rounded-[3rem] shadow-3xl overflow-hidden flex flex-col lg:flex-row reveal">
                 <!-- Lewa strona -->
                 <div class="lg:w-1/2 p-10 sm:p-20 bg-brand-navy text-white">
-                    <h4 class="text-4xl sm:text-6xl font-black mb-10 leading-tight">Gotowy na <br> zmiany?</h4>
-                    <p class="text-slate-400 mb-12 text-lg">Wybierz najszybszą drogę kontaktu:</p>
+                    <h4 class="text-4xl sm:text-5xl font-black mb-8 leading-tight">Twój lokalny <br> elektryk.</h4>
+                    
+                    <div class="mb-12">
+                        <p class="text-brand-gold font-bold uppercase tracking-widest text-xs mb-4">Obsługiwany obszar:</p>
+                        <ul class="grid grid-cols-2 gap-y-3 text-slate-300 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Bojszowy</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Tychy</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Bieruń</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Lędziny</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Pszczyna</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> i okolice</li>
+                        </ul>
+                    </div>
+
                     <div class="space-y-8">
                         <a href="tel:+48792061992" class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-brand-gold transition-all duration-300">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-brand-gold transition-all duration-300">
                                 <i class="fa-solid fa-phone text-2xl"></i>
                             </div>
                             <div>
-                                <p class="text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-1">Zadzwoń</p>
                                 <p class="text-2xl font-black tracking-tighter">792 061 992</p>
                             </div>
                         </a>
                         <a href="https://wa.me/48792061992" target="_blank" class="flex items-center gap-6 group">
-                            <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center group-hover:bg-green-500 transition-all duration-300">
+                            <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center group-hover:bg-green-500 transition-all duration-300">
                                 <i class="fa-brands fa-whatsapp text-2xl text-green-500 group-hover:text-white"></i>
                             </div>
                             <div>
-                                <p class="text-green-500 text-[10px] font-bold uppercase tracking-widest mb-1">Napisz na WhatsApp</p>
-                                <p class="text-2xl font-black tracking-tighter text-white">Szybki czat</p>
+                                <p class="text-2xl font-black tracking-tighter text-white">Czat WhatsApp</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <!-- Prawa strona (Formularz) -->
+                <!-- Prawa strona -->
                 <div class="lg:w-1/2 p-10 sm:p-20 bg-white" id="form-container">
-                    <h5 class="text-2xl font-bold mb-8 italic text-slate-800">Formularz kontaktowy:</h5>
+                    <h5 class="text-2xl font-bold mb-8 text-slate-800">Szybka wycena:</h5>
                     <form id="contact-form" action="https://formsubmit.co/borko92@onet.pl" method="POST" class="space-y-8">
                         <input type="text" name="_honey" style="display:none">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="Nowe zlecenie FazaZero.pl">
-
                         <div class="grid sm:grid-cols-2 gap-8">
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Twoje Imię</label>
-                                <input type="text" name="name" id="form_name" placeholder="Jan Kowalski" required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
+                                <input type="text" name="name" placeholder="Imię i Nazwisko" required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Twoje Telefon</label>
-                                <input type="tel" name="phone" id="form_phone" placeholder="792 000 000" required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
+                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Numer Telefonu</label>
+                                <input type="tel" name="phone" placeholder="792 000 000" required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Treść wiadomości</label>
-                            <textarea name="message" id="form_message" rows="3" placeholder="Potrzebuję pomocy przy..." required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold resize-none"></textarea>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Opisz czego potrzebujesz</label>
+                            <textarea name="message" rows="3" placeholder="Np. Pomiary w Tychach, montaż indukcji..." required class="w-full bg-slate-50 border-b-2 border-slate-100 py-4 focus:border-brand-gold outline-none transition-all font-semibold resize-none"></textarea>
                         </div>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button type="submit" id="submit-btn" class="flex-1 bg-brand-navy hover:bg-brand-blue text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 uppercase tracking-widest">
-                                <span id="btn-text">Wyślij Email</span>
-                            </button>
-                            <button type="button" onclick="sendWhatsApp()" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 uppercase tracking-widest">
-                                WhatsApp
-                            </button>
-                        </div>
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-navy hover:bg-brand-blue text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 uppercase tracking-widest">
+                            <span id="btn-text">Wyślij wiadomość</span>
+                        </button>
                     </form>
-                    
                     <div id="success-msg" class="hidden text-center py-10">
                         <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fa-solid fa-check text-3xl"></i>
                         </div>
-                        <h4 class="text-2xl font-black">Dziękuję za wiadomość!</h4>
-                        <p class="text-slate-500 mt-2">Odezwę się niebawem.</p>
-                        <button onclick="location.reload()" class="mt-8 text-brand-blue font-bold underline">Wyślij kolejną</button>
+                        <h4 class="text-2xl font-black">Wysłano!</h4>
+                        <p class="text-slate-500 mt-2">Dziękuję za kontakt. Zaraz zadzwonię.</p>
                     </div>
                 </div>
             </div>
@@ -304,27 +407,43 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-navy py-12 text-center border-t border-white/5">
-        <p class="text-[10px] uppercase font-bold tracking-[0.3em] text-slate-600">
-            &copy; 2024 Faza zero Bojszowy | Kontakt: 792 061 992 | borko92@onet.pl
-        </p>
+    <footer class="bg-brand-navy py-16 text-center border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <p class="text-white font-bold mb-4">Obsługujemy: Bojszowy, Tychy, Bieruń, Lędziny, Pszczyna i okolice</p>
+            <p class="text-[10px] uppercase font-bold tracking-[0.3em] text-slate-600 mb-2">
+                &copy; 2024 Faza zero | NIP: 6462551406 | Uprawnienia SEP E/D
+            </p>
+            <p class="text-[9px] text-slate-700">Wszystkie prawa zastrzeżone.</p>
+        </div>
     </footer>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/48792061992" target="_blank" class="fixed bottom-24 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center z-[150] whatsapp-float text-2xl shadow-lg lg:bottom-10" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Sticky Mobile Call Button -->
+    <div class="fixed bottom-0 left-0 w-full bg-brand-navy p-3 flex lg:hidden z-[200] border-t border-white/10 shadow-[0_-5px_20px_rgba(0,0,0,0.3)]">
+        <a href="tel:+48792061992" class="w-full bg-brand-gold text-brand-navy py-4 rounded-xl font-black text-center flex items-center justify-center gap-3 active:scale-95 transition-transform uppercase tracking-wider text-sm">
+            <i class="fa-solid fa-phone-volume animate-pulse"></i> Zadzwoń teraz
+        </a>
+    </div>
 
     <!-- Scripts -->
     <script>
-        // Navbar
+        // Navbar scroll logic
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             window.scrollY > 40 ? navbar.classList.add('nav-scrolled', 'py-4') : navbar.classList.remove('nav-scrolled', 'py-4');
         }, { passive: true });
 
-        // Intersection Observer (Scroll Reveal)
+        // Scroll Reveal Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Mobile Menu
+        // Mobile Menu Logic
         const menuToggle = document.getElementById('menu-toggle');
         const mobileOverlay = document.getElementById('mobile-overlay');
         const menuIcon = document.getElementById('menu-icon');
@@ -348,7 +467,23 @@
         menuToggle.addEventListener('click', () => toggleMenu());
         document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(true)));
 
-        // Form
+        // FAQ Toggle Logic
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Form Submission
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -359,25 +494,13 @@
 
             try {
                 const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-                if (res.ok) { contactForm.classList.add('hidden'); document.getElementById('success-msg').classList.remove('hidden'); }
+                if (res.ok) { 
+                    contactForm.classList.add('hidden'); 
+                    document.getElementById('success-msg').classList.remove('hidden'); 
+                }
             } catch (err) { alert('Błąd wysyłki. Zadzwoń: 792 061 992'); }
-            finally { btn.classList.remove('btn-loading'); txt.innerText = 'Wyślij Email'; }
+            finally { btn.classList.remove('btn-loading'); txt.innerText = 'Wyślij wiadomość'; }
         });
-
-        function sendWhatsApp() {
-            const name = document.getElementById('form_name').value;
-            const phone = document.getElementById('form_phone').value;
-            const msg = document.getElementById('form_message').value;
-            if(!name || !phone || !msg) return alert('Wypełnij pola!');
-            window.open(`https://wa.me/48792061992?text=${encodeURIComponent('Hej, tu ' + name + ' (' + phone + '). ' + msg)}`, '_blank');
-        }
-
-        function toggleFaq(btn) {
-            const item = btn.parentElement;
-            const active = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            if (!active) item.classList.add('active');
-        }
     </script>
 </body>
 </html>
