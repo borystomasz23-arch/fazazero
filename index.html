@@ -42,7 +42,7 @@
         "latitude": "50.0601",
         "longitude": "19.0984"
       },
-      "url": "https://twoja-domena.pl",
+      "url": "https://fazazero.pl",
       "priceRange": "$$"
     }
     </script>
@@ -78,17 +78,9 @@
             transform: translateY(0);
         }
         .nav-scrolled {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        .mobile-menu-active {
-            overflow: hidden;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px border rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
         .faq-content {
             max-height: 0;
@@ -103,126 +95,154 @@
             transform: rotate(180deg);
             color: #fbbf24;
         }
+
+        /* Mobile specific fixes */
+        @media (max-width: 639px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+                letter-spacing: -0.05em !important;
+            }
+            .nav-container {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            #logo-text {
+                font-size: 1.125rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
+        /* Prevent horizontal scroll */
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .btn-loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        .btn-loading i {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden font-sans">
 
     <!-- Dynamic Header -->
-    <nav id="navbar" class="fixed w-full z-[100] transition-all duration-500 py-5">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="bg-brand-gold p-2 rounded-xl shadow-lg rotate-3 group-hover:rotate-0 transition-transform">
-                    <i class="fa-solid fa-bolt text-brand-navy text-xl"></i>
+    <nav id="navbar" class="fixed w-full z-[100] transition-all duration-300 py-3 lg:py-6">
+        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center nav-container">
+            <!-- Logo Container -->
+            <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+                <div class="bg-brand-gold p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-lg rotate-3 flex-shrink-0 flex items-center justify-center">
+                    <i class="fa-solid fa-bolt text-brand-navy text-base sm:text-xl"></i>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-extrabold text-xl tracking-tighter text-white uppercase" id="logo-text">Faza zero</span>
-                    <span class="text-[10px] text-brand-gold font-bold uppercase tracking-widest leading-none">Bojszowy & Okolice</span>
+                <div class="flex flex-col justify-center">
+                    <span class="font-black text-white uppercase leading-none tracking-tight" id="logo-text" style="font-size: 1.25rem;">Faza zero</span>
+                    <span class="text-brand-gold font-bold uppercase tracking-widest leading-none hidden xs:block" style="font-size: 9px; margin-top: 2px;">Bojszowy & Okolice</span>
                 </div>
             </div>
             
             <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center space-x-10 text-sm font-semibold uppercase tracking-widest text-white" id="desktop-links">
+            <div class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-white" id="desktop-links">
                 <a href="#uslugi" class="hover:text-brand-gold transition-colors">Usługi</a>
-                <a href="#o-mnie" class="hover:text-brand-gold transition-colors">O mnie</a>
                 <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
                 <a href="#kontakt" class="hover:text-brand-gold transition-colors">Kontakt</a>
-                <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-6 py-3 rounded-full hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-xl">
+                <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-6 py-3 rounded-xl hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-xl">
                     <i class="fa-solid fa-phone-volume mr-2"></i> 792 061 992
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="lg:hidden text-white text-2xl focus:outline-none">
-                <i class="fa-solid fa-bars-staggered" id="menu-icon"></i>
+            <button id="menu-toggle" class="lg:hidden text-white p-2 focus:outline-none flex items-center justify-center ml-2">
+                <i class="fa-solid fa-bars-staggered text-2xl" id="menu-icon"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Overlay -->
     <div id="mobile-overlay" class="fixed inset-0 bg-brand-navy z-[90] flex flex-col items-center justify-center space-y-8 text-white transition-all duration-500 opacity-0 pointer-events-none translate-x-full">
-        <a href="#uslugi" class="text-2xl font-bold">Usługi</a>
-        <a href="#o-mnie" class="text-2xl font-bold">O mnie</a>
-        <a href="#faq" class="text-2xl font-bold">FAQ</a>
-        <a href="#kontakt" class="text-2xl font-bold">Kontakt</a>
-        <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy px-8 py-4 rounded-full font-black text-xl">ZADZWOŃ</a>
+        <a href="#uslugi" class="text-2xl font-black uppercase tracking-tighter">Usługi</a>
+        <a href="#faq" class="text-2xl font-black uppercase tracking-tighter">FAQ</a>
+        <a href="#kontakt" class="text-2xl font-black uppercase tracking-tighter">Kontakt</a>
+        <div class="pt-8 px-6 w-full max-w-xs flex flex-col gap-4">
+            <a href="tel:+48792061992" class="bg-brand-gold text-brand-navy w-full py-5 rounded-2xl font-black text-xl shadow-2xl flex items-center justify-center gap-3">
+                <i class="fa-solid fa-phone"></i> 792 061 992
+            </a>
+            <a href="https://wa.me/48792061992" target="_blank" class="bg-green-500 text-white w-full py-5 rounded-2xl font-black text-xl shadow-2xl flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
     </div>
 
     <!-- Hero Section -->
-    <header class="relative min-h-[90vh] lg:h-screen flex items-center bg-brand-navy overflow-hidden">
-        <!-- Background elements -->
+    <header class="relative min-h-screen flex items-center bg-brand-navy overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img 
-                src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?q=80&w=2070&auto=format&fit=crop" 
-                alt="Profesjonalne usługi elektryczne" 
-                class="w-full h-full object-cover opacity-20 scale-110"
-            >
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/80 to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?q=80&w=2070&auto=format&fit=crop" alt="Profesjonalne usługi elektryczne" class="w-full h-full object-cover opacity-20 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-navy via-brand-navy/80 to-transparent sm:bg-gradient-to-r"></div>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10 pt-24 pb-16">
             <div class="max-w-4xl">
-                <div class="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 rounded-full border border-white/10 mb-8 backdrop-blur-md">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/10 mb-6 sm:mb-8 backdrop-blur-md">
                     <span class="w-2 h-2 bg-brand-gold rounded-full animate-pulse"></span>
-                    <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Szybki dojazd Bojszowy & Okolice</span>
+                    <span class="text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-widest">Szybki dojazd Bojszowy & Okolice</span>
                 </div>
-                <h1 class="text-5xl md:text-8xl font-black text-white leading-[1.05] mb-8 tracking-tighter">
-                    Solidna Elektryka <br>
+                <h1 class="hero-title text-4xl sm:text-6xl md:text-8xl font-black text-white leading-[1.1] mb-6 sm:mb-10 tracking-tight">
+                    Solidna Elektryka <br class="hidden sm:block">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-accent">Bez Kompromisów.</span>
                 </h1>
-                <p class="text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-medium">
+                <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-medium">
                     Fachowiec z uprawnieniami SEP. Montuję instalacje, usuwam awarie i podłączam sprzęt AGD. Gwarantuję czystość, terminowość i bezpieczeństwo Twojego domu.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="tel:+48792061992" class="group bg-brand-gold hover:bg-white text-brand-navy text-xl px-12 py-5 rounded-2xl font-black transition-all shadow-2xl flex items-center justify-center gap-4">
-                        <i class="fa-solid fa-phone-flip text-2xl group-hover:rotate-12 transition-transform"></i>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                    <a href="tel:+48792061992" class="group bg-brand-gold hover:bg-white text-brand-navy text-lg sm:text-xl px-8 sm:px-12 py-4.5 sm:py-5 rounded-2xl font-black transition-all shadow-2xl flex items-center justify-center gap-4">
+                        <i class="fa-solid fa-phone-flip text-xl group-hover:rotate-12 transition-transform"></i>
                         792 061 992
                     </a>
-                    <a href="#uslugi" class="bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border border-white/20 text-xl px-12 py-5 rounded-2xl font-bold transition-all flex items-center justify-center">
+                    <a href="#uslugi" class="bg-white/5 hover:bg-white/10 backdrop-blur-md text-white border border-white/20 text-lg sm:text-xl px-8 sm:px-12 py-4.5 sm:py-5 rounded-2xl font-bold transition-all flex items-center justify-center">
                         Moje usługi
                     </a>
                 </div>
             </div>
         </div>
-
-        <!-- Floating Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40 text-xs gap-4 animate-bounce">
-            <span>SCROLL</span>
-            <div class="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"></div>
-        </div>
     </header>
 
     <!-- Usługi Grid -->
-    <section id="uslugi" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+    <section id="uslugi" class="py-20 sm:py-32 bg-slate-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 sm:mb-24 gap-8">
                 <div class="max-w-2xl reveal">
                     <h2 class="text-brand-blue font-bold tracking-[0.2em] text-sm uppercase mb-4">Moja Oferta</h2>
-                    <h3 class="text-4xl md:text-6xl font-black text-slate-900 leading-tight">Profesjonalizm w Każdym <span class="text-brand-blue underline decoration-brand-gold decoration-4 underline-offset-8">Detalu.</span></h3>
+                    <h3 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight">Profesjonalizm w Każdym <span class="text-brand-blue underline decoration-brand-gold decoration-4 underline-offset-8">Detalu.</span></h3>
                 </div>
                 <p class="text-slate-500 font-medium max-w-sm reveal">Każde zlecenie traktuję indywidualnie, dbając o normy bezpieczeństwa i najwyższą estetykę wykonania.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- S1 -->
-                <div class="reveal group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
-                    <div class="w-20 h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
-                        <i class="fa-solid fa-house-circle-check text-4xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+                <div class="reveal group bg-white p-8 sm:p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-8 sm:mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
+                        <i class="fa-solid fa-house-circle-check text-3xl sm:text-4xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4 text-slate-900">Instalacje Domowe</h4>
                     <p class="text-slate-500 leading-relaxed font-medium">Od projektu po montaż. Nowoczesne systemy elektryczne w domach i mieszkaniach.</p>
                 </div>
-                <!-- S2 -->
-                <div class="reveal group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="transition-delay: 100ms;">
-                    <div class="w-20 h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
-                        <i class="fa-solid fa-bolt-lightning text-4xl"></i>
+                <div class="reveal group bg-white p-8 sm:p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-8 sm:mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
+                        <i class="fa-solid fa-bolt-lightning text-3xl sm:text-4xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4 text-slate-900">Naprawy Usterek</h4>
                     <p class="text-slate-500 leading-relaxed font-medium">Szybkie usuwanie awarii, naprawa zwarć i przywracanie zasilania w Twoim domu.</p>
                 </div>
-                <!-- S3 -->
-                <div class="reveal group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="transition-delay: 200ms;">
-                    <div class="w-20 h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
-                        <i class="fa-solid fa-fire-burner text-4xl"></i>
+                <div class="reveal group bg-white p-8 sm:p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-50 text-brand-blue rounded-3xl flex items-center justify-center mb-8 sm:mb-10 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-500 shadow-inner">
+                        <i class="fa-solid fa-fire-burner text-3xl sm:text-4xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4 text-slate-900">Montaż AGD (SEP)</h4>
                     <p class="text-slate-500 leading-relaxed font-medium">Fachowe podłączanie płyt indukcyjnych z wpisem do karty gwarancyjnej producenta.</p>
@@ -231,291 +251,123 @@
         </div>
     </section>
 
-    <!-- Jak działam (Proces) -->
-    <section id="proces" class="py-32 bg-brand-navy text-white overflow-hidden relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-24 reveal">
-                <h3 class="text-brand-gold font-bold tracking-[0.2em] text-sm uppercase mb-4">Gwarancja Satysfakcji</h3>
-                <h4 class="text-4xl md:text-5xl font-black mb-8">Jak wygląda współpraca?</h4>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <!-- Line decoration -->
-                <div class="hidden md:block absolute top-12 left-0 w-full h-[2px] bg-white/5 z-0"></div>
-                
-                <div class="relative z-10 flex flex-col items-center text-center reveal">
-                    <div class="w-16 h-16 bg-brand-gold text-brand-navy rounded-full flex items-center justify-center font-black text-2xl mb-6 shadow-[0_0_30px_rgba(251,191,36,0.3)]">1</div>
-                    <h5 class="text-xl font-bold mb-3">Kontakt</h5>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Dzwonisz i opisujesz problem. Ustalimy wstępny zakres prac.</p>
-                </div>
-                <div class="relative z-10 flex flex-col items-center text-center reveal" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 bg-white/10 text-white rounded-full flex items-center justify-center font-black text-2xl mb-6 backdrop-blur-md">2</div>
-                    <h5 class="text-xl font-bold mb-3">Wycena</h5>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Podaję jasną cenę przed startem. Bez ukrytych kosztów.</p>
-                </div>
-                <div class="relative z-10 flex flex-col items-center text-center reveal" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 bg-white/10 text-white rounded-full flex items-center justify-center font-black text-2xl mb-6 backdrop-blur-md">3</div>
-                    <h5 class="text-xl font-bold mb-3">Realizacja</h5>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Pracuję sprawnie, dbając o porządek i standardy SEP.</p>
-                </div>
-                <div class="relative z-10 flex flex-col items-center text-center reveal" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 bg-white/10 text-white rounded-full flex items-center justify-center font-black text-2xl mb-6 backdrop-blur-md">4</div>
-                    <h5 class="text-xl font-bold mb-3">Odbiór</h5>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Sprawdzamy działanie instalacji. Dostajesz wpis lub fakturę.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- O mnie / Dlaczego ja -->
-    <section id="o-mnie" class="py-32 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-20">
-                <div class="lg:w-1/2 reveal">
-                    <div class="relative">
-                        <img 
-                            src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=1887&auto=format&fit=crop" 
-                            alt="Ekspert przy pracy" 
-                            class="rounded-[3rem] shadow-2xl relative z-10 w-full object-cover aspect-[4/5]"
-                        >
-                        <div class="absolute -bottom-10 -right-10 glass-card bg-brand-gold/90 p-10 rounded-[2.5rem] shadow-2xl z-20 text-brand-navy max-w-[280px]">
-                            <i class="fa-solid fa-certificate text-4xl mb-4"></i>
-                            <p class="font-black text-3xl leading-none mb-2 tracking-tighter uppercase">Uprawnienia SEP</p>
-                            <p class="text-sm font-bold opacity-80 uppercase tracking-widest">Eksploatacja & Dozór</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 reveal">
-                    <h2 class="text-brand-blue font-bold tracking-[0.2em] text-sm uppercase mb-4">Dlaczego ja?</h2>
-                    <h3 class="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">Twój Lokalny Ekspert w Bojszowach.</h3>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-start gap-6 p-6 hover:bg-slate-50 rounded-3xl transition-colors group">
-                            <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold group-hover:text-white transition-all">
-                                <i class="fa-solid fa-broom text-2xl"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xl font-bold mb-2">Czystość to standard</h5>
-                                <p class="text-slate-500 font-medium">Szanuję Twój czas i dom. Po wykonanej pracy zawsze zostawiam nienaganny porządek.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-6 p-6 hover:bg-slate-50 rounded-3xl transition-colors group">
-                            <div class="w-14 h-14 bg-brand-gold/10 text-brand-gold rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gold group-hover:text-white transition-all">
-                                <i class="fa-solid fa-shield-halved text-2xl"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-xl font-bold mb-2">Bezpieczeństwo przede wszystkim</h5>
-                                <p class="text-slate-500 font-medium">Korzystam z atestowanych materiałów i nowoczesnych narzędzi pomiarowych.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-brand-blue font-bold tracking-[0.2em] text-sm uppercase mb-4">Masz Pytania?</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Często Zadawane Pytania</h3>
-            </div>
-
-            <div class="space-y-6">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300">
-                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
-                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jakie uprawnienia posiadasz?</span>
-                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
-                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
-                            Posiadam pełne, aktualne uprawnienia SEP w kategoriach E (Eksploatacja) oraz D (Dozór). Pozwala mi to na wykonywanie instalacji, pomiarów oraz odbiór prac w budynkach mieszkalnych i użytkowych.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 100ms;">
-                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
-                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Czy podbijasz gwarancję na płytę indukcyjną?</span>
-                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
-                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
-                            Tak. Większość producentów AGD wymaga, aby montażu dokonała osoba z uprawnieniami SEP pod rygorem utraty gwarancji. Po podłączeniu urządzenia dokonuję odpowiedniego wpisu i pieczęci w Twojej karcie gwarancyjnej.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 200ms;">
-                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
-                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jaki jest koszt dojazdu?</span>
-                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
-                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
-                            W promieniu 10 km od Bojszowy dojazd przy realizacji usługi jest darmowy. Powyżej tej odległości (do 20 km) koszt dojazdu jest ustalany indywidualnie, zazwyczaj jest to kwota symboliczna pokrywająca paliwo.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="faq-item reveal bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden transition-all duration-300" style="transition-delay: 300ms;">
-                    <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center group">
-                        <span class="text-xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors">Jak szybko możesz przyjechać do usterki?</span>
-                        <div class="faq-icon w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center transition-all duration-300">
-                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-8 pt-0 text-slate-500 leading-relaxed font-medium border-t border-slate-50">
-                            Nagłe usterki elektryczne (brak prądu, zwarcia) traktuję priorytetowo. Zazwyczaj jestem w stanie pojawić się u klienta w ciągu kilku godzin od zgłoszenia telefonicznego, o ile aktualnie nie pracuję przy innym zleceniu.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Kontakt Final -->
-    <section id="kontakt" class="py-32 bg-white overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="bg-brand-navy rounded-[4rem] shadow-3xl overflow-hidden flex flex-col lg:flex-row reveal">
+    <section id="kontakt" class="py-20 sm:py-32 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="bg-brand-navy rounded-[2.5rem] sm:rounded-[4rem] shadow-3xl overflow-hidden flex flex-col lg:flex-row reveal">
                 <!-- Left side -->
-                <div class="lg:w-1/2 p-12 lg:p-24 bg-brand-navy text-white relative">
+                <div class="lg:w-1/2 p-8 sm:p-12 lg:p-24 bg-brand-navy text-white relative">
                     <div class="relative z-10">
-                        <h4 class="text-4xl md:text-6xl font-black mb-10 leading-tight">Zacznijmy <br> Działać.</h4>
-                        <p class="text-slate-400 mb-16 text-lg font-medium">Zadzwoń bezpośrednio lub napisz przez formularz. Wstępna wycena jest darmowa.</p>
+                        <h4 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-10 leading-tight">Zacznijmy <br> Działać.</h4>
+                        <p class="text-slate-400 mb-12 text-lg font-medium">Kliknij, aby połączyć się błyskawicznie:</p>
                         
-                        <div class="space-y-12">
-                            <a href="tel:+48792061992" class="flex items-center gap-8 group">
-                                <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center group-hover:bg-brand-gold transition-all duration-500">
-                                    <i class="fa-solid fa-phone text-3xl group-hover:text-brand-navy"></i>
+                        <div class="space-y-6 sm:space-y-8">
+                            <a href="tel:+48792061992" class="flex items-center gap-6 sm:gap-8 group">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 rounded-2xl sm:rounded-3xl flex items-center justify-center group-hover:bg-brand-gold transition-all duration-500 flex-shrink-0">
+                                    <i class="fa-solid fa-phone text-2xl sm:text-3xl group-hover:text-brand-navy"></i>
                                 </div>
                                 <div>
-                                    <p class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-2">Darmowa Wycena</p>
-                                    <p class="text-3xl font-black tracking-tighter">792 061 992</p>
+                                    <p class="text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-1">Zadzwoń bezpośrednio</p>
+                                    <p class="text-2xl sm:text-3xl font-black tracking-tighter">792 061 992</p>
                                 </div>
                             </a>
-                            <div class="flex items-center gap-8">
-                                <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center">
-                                    <i class="fa-solid fa-location-arrow text-3xl text-brand-gold"></i>
+                            <a href="https://wa.me/48792061992" target="_blank" class="flex items-center gap-6 sm:gap-8 group">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/10 rounded-2xl sm:rounded-3xl flex items-center justify-center group-hover:bg-green-500 transition-all duration-500 flex-shrink-0">
+                                    <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl text-green-500 group-hover:text-white"></i>
                                 </div>
                                 <div>
-                                    <p class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-2">Region</p>
-                                    <p class="text-3xl font-black tracking-tighter">Bojszowy + 20 km</p>
+                                    <p class="text-green-500 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-1">WhatsApp (Wiadomość na telefon)</p>
+                                    <p class="text-2xl sm:text-3xl font-black tracking-tighter text-white">Napisz teraz</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
-                    <!-- Decorative Circle -->
-                    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-gold/5 rounded-full blur-3xl"></div>
                 </div>
 
                 <!-- Right side (Form) -->
-                <div class="lg:w-1/2 p-12 lg:p-24 bg-white">
-                    <h5 class="text-2xl font-bold mb-10 italic text-slate-800 tracking-tight">Wyślij krótkie zapytanie:</h5>
-                    <form class="space-y-8" onsubmit="event.preventDefault(); alert('Wiadomość została wysłana! Zaraz się z Tobą skontaktuję.');">
-                        <div class="grid md:grid-cols-2 gap-8">
+                <div class="lg:w-1/2 p-8 sm:p-12 lg:p-24 bg-white" id="form-container">
+                    <h5 class="text-xl sm:text-2xl font-bold mb-8 italic text-slate-800">Wyślij zapytanie na maila:</h5>
+                    
+                    <!-- REAL FORM USING FORMSUBMIT CONFIG TO borko92@onet.pl -->
+                    <form id="contact-form" action="https://formsubmit.co/borko92@onet.pl" method="POST" class="space-y-6 sm:space-y-8">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="Nowe zlecenie ze strony FazaZero.pl">
+                        <input type="hidden" name="_next" value="https://fazazero.pl/dziekujemy">
+
+                        <div class="grid sm:grid-cols-2 gap-6 sm:gap-8">
                             <div class="relative">
-                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Twoje Imię</label>
-                                <input type="text" placeholder="Jan Kowalski" required class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
+                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Imię i Nazwisko</label>
+                                <input type="text" name="name" id="form_name" placeholder="Jan Kowalski" required class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-3 sm:py-4 focus:border-brand-gold outline-none transition-all font-semibold">
                             </div>
                             <div class="relative">
-                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Telefon</label>
-                                <input type="tel" placeholder="000 000 000" required class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-4 focus:border-brand-gold outline-none transition-all font-semibold">
+                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Twój Telefon</label>
+                                <input type="tel" name="phone" id="form_phone" placeholder="792 000 000" required class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-3 sm:py-4 focus:border-brand-gold outline-none transition-all font-semibold">
                             </div>
                         </div>
                         <div class="relative">
-                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">O co chcesz zapytać?</label>
-                            <textarea rows="4" placeholder="Np. szukam elektryka do montażu indukcji..." class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-4 focus:border-brand-gold outline-none transition-all font-semibold resize-none"></textarea>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Opis zlecenia</label>
+                            <textarea name="message" id="form_message" rows="3" placeholder="Potrzebuję pomocy przy..." required class="w-full bg-slate-50 border-b-2 border-slate-100 px-0 py-3 sm:py-4 focus:border-brand-gold outline-none transition-all font-semibold resize-none"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-brand-navy hover:bg-brand-blue text-white font-black py-6 rounded-2xl shadow-xl transition-all active:scale-95 text-xl tracking-widest uppercase">
-                            Wyślij Wiadomość
-                        </button>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button type="submit" id="submit-btn" class="flex-1 bg-brand-navy hover:bg-brand-blue text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 text-lg tracking-widest uppercase flex items-center justify-center gap-3">
+                                <span id="btn-text">Wyślij Email</span>
+                            </button>
+                            <button type="button" onclick="sendWhatsApp()" class="flex-1 bg-green-500 hover:bg-green-600 text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 text-lg tracking-widest uppercase flex items-center justify-center gap-3">
+                                <i class="fa-brands fa-whatsapp"></i> Wyślij przez WhatsApp
+                            </button>
+                        </div>
                     </form>
+                    
+                    <div id="success-msg" class="hidden text-center py-10">
+                        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fa-solid fa-check text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-black mb-2">Wysłano!</h4>
+                        <p class="text-slate-500">Dostałem Twoją wiadomość. Sprawdź telefon – odezwę się niebawem!</p>
+                        <button onclick="location.reload()" class="mt-8 text-brand-blue font-bold underline">Wyślij ponownie</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-navy text-slate-500 py-20 border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-brand-gold p-2 rounded-xl">
-                        <i class="fa-solid fa-bolt text-brand-navy text-xl"></i>
-                    </div>
-                    <span class="font-extrabold text-2xl text-white tracking-tighter uppercase">Faza zero</span>
+    <footer class="bg-brand-navy text-slate-500 py-12 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-8">
+                <div class="bg-brand-gold p-2 rounded-xl">
+                    <i class="fa-solid fa-bolt text-brand-navy text-xl"></i>
                 </div>
-                
-                <div class="flex space-x-12 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-                    <a href="#uslugi" class="hover:text-white transition-colors">Usługi</a>
-                    <a href="#o-mnie" class="hover:text-white transition-colors">O mnie</a>
-                    <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-                    <a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a>
-                </div>
-
-                <div class="flex space-x-6">
-                    <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-all"><i class="fa-brands fa-instagram"></i></a>
-                </div>
+                <span class="font-extrabold text-2xl text-white tracking-tighter uppercase">Faza zero</span>
             </div>
-            
-            <div class="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between text-[10px] items-center gap-4 uppercase font-bold tracking-[0.3em]">
-                <p>&copy; 2024 Faza zero Bojszowy. Solidność to mój standard.</p>
-                <p class="text-slate-600">Działalność nierejestrowana. Realizacja: Premium Web Design.</p>
-            </div>
+            <p class="text-[10px] uppercase font-bold tracking-[0.3em] text-slate-600">
+                &copy; 2024 Faza zero Bojszowy. Kontakt: 792 061 992 | borko92@onet.pl
+            </p>
         </div>
     </footer>
 
     <!-- Fixed Floating CTA -->
-    <a href="tel:+48792061992" class="fixed bottom-8 right-8 lg:hidden bg-brand-gold text-brand-navy w-16 h-16 rounded-full shadow-[0_20px_50px_rgba(251,191,36,0.5)] flex items-center justify-center z-[200] animate-pulse">
-        <i class="fa-solid fa-phone text-2xl"></i>
+    <a href="tel:+48792061992" class="fixed bottom-6 right-6 lg:hidden bg-brand-gold text-brand-navy w-14 h-14 rounded-full shadow-[0_15px_40px_rgba(251,191,36,0.6)] flex items-center justify-center z-[200]">
+        <i class="fa-solid fa-phone text-xl"></i>
     </a>
 
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        const logoText = document.getElementById('logo-text');
-        
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('nav-scrolled', 'py-4');
-                navbar.classList.remove('py-5');
-            } else {
-                navbar.classList.remove('nav-scrolled', 'py-4');
-                navbar.classList.add('py-5');
-            }
+            if (window.scrollY > 40) navbar.classList.add('nav-scrolled', 'py-3');
+            else navbar.classList.remove('nav-scrolled', 'py-3');
         });
 
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Scroll reveal
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Mobile menu logic
+        // Mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const mobileOverlay = document.getElementById('mobile-overlay');
         const menuIcon = document.getElementById('menu-icon');
@@ -536,30 +388,61 @@
             }
         });
 
-        // Close menu on link click
-        mobileOverlay.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuOpen = false;
-                mobileOverlay.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars-staggered');
-                document.body.style.overflow = '';
-            });
+        // Form Submission to Email
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const successMsg = document.getElementById('success-msg');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            submitBtn.classList.add('btn-loading');
+            btnText.innerHTML = '<i class="fa-solid fa-circle-notch mr-2"></i> Wysyłanie...';
+
+            const formData = new FormData(this);
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    contactForm.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                } else {
+                    alert('Błąd serwera. Zadzwoń: 792 061 992');
+                }
+            } catch (error) {
+                alert('Błąd połączenia. Zadzwoń bezpośrednio: 792 061 992');
+            } finally {
+                submitBtn.classList.remove('btn-loading');
+                btnText.innerText = 'Wyślij Email';
+            }
         });
+
+        // WhatsApp Direct Message
+        function sendWhatsApp() {
+            const name = document.getElementById('form_name').value;
+            const phone = document.getElementById('form_phone').value;
+            const msg = document.getElementById('form_message').value;
+
+            if(!name || !phone || !msg) {
+                alert('Proszę wypełnić pola formularza przed wysyłką WhatsApp.');
+                return;
+            }
+
+            const text = `Dzień dobry! Nazywam się ${name}. Mój nr: ${phone}. Zapytanie: ${msg}`;
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/48792061992?text=${encodedText}`, '_blank');
+        }
 
         // FAQ logic
         function toggleFaq(button) {
             const item = button.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Close all items
-            document.querySelectorAll('.faq-item').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Toggle clicked item
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         }
     </script>
 </body>
